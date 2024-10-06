@@ -1,0 +1,80 @@
+ROUTER 1:-
+interface fa0/0
+ip address 192.10.10.254 255.255.255.0
+no shut
+do wr
+exit
+
+interface se2/0
+ip address 40.10.10.1 255.0.0.0
+clock rate 6400
+no shut
+do wr
+exit
+
+interface se3/0
+ip address 30.10.10.1 255.0.0.0
+clock rate 6400
+no shut
+do wr
+exit
+
+ROUTER2:-
+
+interface fa0/0
+ip address 160.20.10.254 255.255.0.0
+no shut
+do wr
+exit
+
+interface se3/0
+ip address 20.10.10.1 255.0.0.0
+clock rate 6400
+no shut
+do wr
+exit
+
+interface se2/0
+ip address 30.10.10.2 255.0.0.0
+no shut
+do wr
+exit
+
+router3:-
+
+interface fa0/0
+ip address 10.10.10.254 255.0.0.0
+no shut
+do wr
+exit
+
+interface se3/0
+ip address 40.10.10.2 255.0.0.0
+no shut
+do wr
+exit
+
+interface se2/0
+ip address 20.10.10.2 255.0.0.0
+no shut
+do wr
+exit
+
+EIGRP:_
+router eigrp 1
+network 192.10.10.0 0.0.0.255
+network 30.0.0.0 0.255.255.255
+network 40.0.0.0 0.255.255.255
+exit
+
+router eigrp 1
+network 160.20.0.0 0.0.255.255
+network 20.0.0.0 0.255.255.255
+network 30.0.0.0 0.255.255.255
+exit
+
+router eigrp 1
+network 10.0.0.0 0.255.255.255
+network 20.0.0.0 0.255.255.255
+network 40.0.0.0 0.255.255.255
+exit

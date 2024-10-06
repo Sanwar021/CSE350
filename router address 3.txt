@@ -1,0 +1,50 @@
+rip
+
+router rip
+network 192.168.10.0
+network 192.168.40.0
+network 192.168.50.0
+exit
+
+router rip
+network 192.168.20.0
+network 192.168.50.0
+network 192.168.60.0
+exit
+
+router rip
+network 192.168.30.0
+network 192.168.40.0
+network 192.168.60.0
+exit
+
+eigrp
+
+router eigrp1
+newtwork 10.0.0.0 0.255.255.255
+network 140.10.0.0 0.0.255.255
+network 150.10.0.0 0.0.255.255
+exit
+
+router eigrp1
+newtwork 20.0.0.0 0.255.255.255
+network 130.10.0.0 0.0.255.255
+network 150.10.0.0 0.0.255.255
+exit
+
+router eigrp1
+newtwork 30.0.0.0 0.255.255.255
+network 140.10.0.0 0.0.255.255
+network 130.10.0.0 0.0.255.255
+exit
+
+
+
+ospf
+router ospf 1
+network networkIP SM area1
+exit
+
+router ospf 1
+network 10.0.0.0 0.255.255.255 area1
+network  
